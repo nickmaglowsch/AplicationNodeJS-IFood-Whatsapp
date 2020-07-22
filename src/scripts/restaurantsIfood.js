@@ -3,7 +3,7 @@ const restaurantes = Array.from(
 ).map((el) => {
   return {
     nome: el.querySelector(".restaurant-name").innerText,
-    link: el.href,
+    link: el.parentNode.href,
     rating: el.querySelector(".restaurant-rating").innerText,
     img: el.querySelector(".restaurant-card__img-logo").src,
   };

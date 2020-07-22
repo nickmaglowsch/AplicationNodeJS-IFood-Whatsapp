@@ -1,8 +1,20 @@
 const app = require("./src/fluxo");
+const bot = require("./funcoesBot");
+const sulla = require("venom-bot");
 
-const sulla = require("sulla");
 
 (async () => {
   const whatsapp = await sulla.create();
-  app.main(whatsapp);
+  setInterval(function () {
+    app.main();
+  }, 1 * 60 * 60 * 1000); // 1 hour
+  whatsapp.onMessage(async msg => {
+    if (msg.body === "!bott") {
+      // await app.main();
+      bot.retornarPrecinhos(whatsapp, msg.chatId, "restaurantes")
+
+    }
+  })
 })();
+
+
